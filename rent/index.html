@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Prices Over Time</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="priceChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('priceChart').getContext('2d');
+        
+        const data = {
+            labels: ["2016-02-13", "2016-11-28", "2017-03-07", "2018-02-20", "2019-11-04", "2021-04-20", "2022-05-26", "2022-11-29", "2024-02-03", "2025-03-06"],
+            datasets: [
+                { label: "Northfield", data: [148.88, 148.88, 151.86, 156, 167.5, 172.75, 176.45, 182.98, 208.6, 214.83], borderColor: "#FF0000", fill: false },
+                { label: "Stanmer", data: [142.47, 146.74, 146.74, 150, 159.4, 164.4, 168.1, 173.17, 193.95, 199.78], borderColor: "#00FF00", fill: false },
+                { label: "Swanborough", data: [150.01, 153.01, 153.01, 156, 167.5, 172.75, 176.45, 182.98, 208.6, 214.83], borderColor: "#0000FF", fill: false },
+                { label: "Lewes Court En-suite", data: [144.92, 147.82, 147.82, 151, 160.4, 165.5, 167.16, 173.17, 193.95, 199.78], borderColor: "#FFA500", fill: false },
+                { label: "Brighthelm", data: [131.29, 133.92, 133.92, 137, 145.9, 150.5, 153.72, 158.33, 177.33, 182.63], borderColor: "#800080", fill: false },
+                { label: "Lewes Court Shared", data: [126.22, 128.74, 128.74, 119, 123, 123, 124.23, 125, 125, 128.73], borderColor: "#008080", fill: false },
+                { label: "Norwich House", data: [113.6, 115.83, 115.83, 111, 115, 118.5, 116.16, 119.64, 119.64, 123.2], borderColor: "#FF1493", fill: false },
+                { label: "East Slope En-suite", data: [null, null, null, 156.55, 167.5, 172.75, 176.45, 184, 208.6, 214.83 ], borderColor: "#FFD700", fill: false },
+                { label: "East Slope Shared", data: [null, null, null, null, 159.13, 164.11, 167.63, 174.8, 198.17, 189], borderColor: "#A52A2A", fill: false }
+            ]
+        };
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Accommodation Prices Over Time (£ per week)'
+                    }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Date' } },
+                    y: { title: { display: true, text: 'Price (£ per week)' } }
+                }
+            }
+        });
+    </script>
+    <p>Links used for pricing: https://web.archive.org/web/20160213195028/http://www.sussex.ac.uk:80/study/accommodation/on-campus
+        https://web.archive.org/web/20161129055849/http://www.sussex.ac.uk:80/study/accommodation/on-campus
+        https://web.archive.org/web/20170307215523/http://www.sussex.ac.uk/study/accommodation/on-campus
+        https://web.archive.org/web/20180220084141/http://www.sussex.ac.uk:80/study/accommodation/on-campus
+        https://web.archive.org/web/20191104151231/https://www.sussex.ac.uk/study/accommodation/on-campus
+        https://web.archive.org/web/20210420221648/https://www.sussex.ac.uk/study/accommodation/on-campus
+        https://web.archive.org/web/20220526140620/https://www.sussex.ac.uk/study/accommodation/on-campus
+        https://web.archive.org/web/20221129134045/https://www.sussex.ac.uk/study/accommodation/on-campus
+        https://web.archive.org/web/20240203154319/https://www.sussex.ac.uk/study/accommodation/on-campus
+        https://www.sussex.ac.uk/study/accommodation/on-campus
+        </p>
+</body>
+</html>
